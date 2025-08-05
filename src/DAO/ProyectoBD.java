@@ -9,15 +9,17 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Modelo.Proyecto;
+import Servicio.Config;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class ProyectoBD {
     // Información de conexión a la base de datos
-    private static final String JDBC_URL = "jdbc:postgresql://localhost:5432/nombre_de_tu_bd";
-    private static final String USER = "admin";
-    private static final String PASSWORD = "admin";
+
     // Método para obtener la conexión
     private Connection getConnection() throws SQLException {
-        return java.sql.DriverManager.getConnection(JDBC_URL, USER, PASSWORD);
+        return DriverManager.getConnection(Config.DB_URL, Config.DB_USER, Config.DB_PASSWORD);
     }
     // Método para guardar un nuevo proyecto
     public void addProyecto(Proyecto proyecto) {

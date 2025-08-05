@@ -1,6 +1,7 @@
 package DAO;
 
 import Modelo.Tarea;
+import Servicio.Config;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -10,16 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.sql.DriverManager;
 
 public class TareaBD {
 
-    private static final String JDBC_URL = "jdbc:postgresql://localhost:5432/tu_bd";
-    private static final String USER = "tu_usuario";
-    private static final String PASSWORD = "tu_contraseña";
-
     private Connection getConnection() throws SQLException {
-        return java.sql.DriverManager.getConnection(JDBC_URL, USER, PASSWORD);
-    }
+    return DriverManager.getConnection(Config.DB_URL, Config.DB_USER, Config.DB_PASSWORD);
+}
 
     public void addTarea(Tarea tarea) {
         String sql = "INSERT INTO tasks (nombre, descripcion, fecha_inicio, fecha_fin, estado, id_proyecto) VALUES (?, ?, ?, ?, ?, ?)";
