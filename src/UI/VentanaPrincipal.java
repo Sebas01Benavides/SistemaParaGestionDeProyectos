@@ -94,7 +94,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     try {
         // Obtener la lista de tareas del proyecto
         List<Tarea> tareas = tareaBD.getAllTareasByProjectId(projectId);
-
         // Llenar la tabla con los datos de las tareas
         for (Tarea tarea : tareas) {
             Object[] row = new Object[]{
