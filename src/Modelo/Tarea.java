@@ -1,27 +1,39 @@
 package Modelo;
+
 import java.util.Date;
 
-public class Tarea { //Tarea dentro de un proyecto
+public class Tarea {
+    
     private int id;
     private String nombre;
     private String descripcion;
-    private Date fechaVencimiento;
+    private Date fechaInicio;
+    private Date fechaFin;
     private String estado;
-    private String prioridad;
-    private int projectId;
+    private int idProyecto;
 
-    // Constructor
-    public Tarea(int id, String nombre, String descripcion, Date fechaVencimiento, String estado, String prioridad, int projectId) {
+    // Constructor para crear una nueva tarea (sin ID, la BD lo asigna)
+    public Tarea(String nombre, String descripcion, Date fechaInicio, Date fechaFin, String estado, int idProyecto) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.estado = estado;
+        this.idProyecto = idProyecto;
+    }
+    
+    // Constructor completo (con ID, para cuando se recupera de la BD)
+    public Tarea(int id, String nombre, String descripcion, Date fechaInicio, Date fechaFin, String estado, int idProyecto) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.fechaVencimiento = fechaVencimiento;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
         this.estado = estado;
-        this.prioridad = prioridad;
-        this.projectId = projectId;
+        this.idProyecto = idProyecto;
     }
 
-    // Getters
+    // Métodos Getters
     public int getId() {
         return id;
     }
@@ -34,23 +46,23 @@ public class Tarea { //Tarea dentro de un proyecto
         return descripcion;
     }
 
-    public Date getFechaVencimiento() {
-        return fechaVencimiento;
+    public Date getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public Date getFechaFin() {
+        return fechaFin;
     }
 
     public String getEstado() {
         return estado;
     }
 
-    public String getPrioridad() {
-        return prioridad;
+    public int getIdProyecto() {
+        return idProyecto;
     }
 
-    public int getProjectId() {
-        return projectId;
-    }
-
-    // Setters
+    // Métodos Setters
     public void setId(int id) {
         this.id = id;
     }
@@ -63,19 +75,19 @@ public class Tarea { //Tarea dentro de un proyecto
         this.descripcion = descripcion;
     }
 
-    public void setFechaVencimiento(Date fechaVencimiento) {
-        this.fechaVencimiento = fechaVencimiento;
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
     public void setEstado(String estado) {
         this.estado = estado;
     }
 
-    public void setPrioridad(String prioridad) {
-        this.prioridad = prioridad;
-    }
-
-    public void setProjectId(int projectId) {
-        this.projectId = projectId;
+    public void setIdProyecto(int idProyecto) {
+        this.idProyecto = idProyecto;
     }
 }
